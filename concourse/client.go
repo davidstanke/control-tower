@@ -12,6 +12,7 @@ import (
 	"github.com/EngineerBetter/control-tower/fly"
 	"github.com/EngineerBetter/control-tower/iaas"
 	"github.com/EngineerBetter/control-tower/terraform"
+	"github.com/EngineerBetter/control-tower/resource"
 
 	"github.com/xenolf/lego/lego"
 )
@@ -46,8 +47,8 @@ type IClient interface {
 }
 
 //go:generate go-bindata -pkg $GOPACKAGE ../../control-tower-ops/createenv-dependencies-and-cli-versions-aws.json ../../control-tower-ops/createenv-dependencies-and-cli-versions-gcp.json
-var awsVersionFile = MustAsset("../../control-tower-ops/createenv-dependencies-and-cli-versions-aws.json")
-var gcpVersionFile = MustAsset("../../control-tower-ops/createenv-dependencies-and-cli-versions-gcp.json")
+// var awsVersionFile = MustAsset("../../control-tower-ops/createenv-dependencies-and-cli-versions-aws.json")
+// var gcpVersionFile = MustAsset("../../control-tower-ops/createenv-dependencies-and-cli-versions-gcp.json")
 
 // New returns a new client
 func NewClient(
@@ -67,8 +68,8 @@ func NewClient(
 	sshGenerator func() ([]byte, []byte, string, error),
 	version string) *Client {
 	v, _ := provider.Choose(iaas.Choice{
-		AWS: awsVersionFile,
-		GCP: gcpVersionFile,
+		AWS: resource.AWSVersionFile,
+		GCP: resource.GCPVersionFile,
 	}).([]byte)
 	return &Client{
 		acmeClientConstructor: acmeClientConstructor,

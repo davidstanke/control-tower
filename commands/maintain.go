@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/EngineerBetter/control-tower/commands/maintain"
+	"github.com/EngineerBetter/control-tower/resource"
 
 	"github.com/EngineerBetter/control-tower/bosh"
 	"github.com/EngineerBetter/control-tower/certs"
@@ -87,7 +88,12 @@ func validateMaintainArgs(c *cli.Context, maintainArgs maintain.Args) (maintain.
 }
 
 func buildMaintainClient(name, version string, maintainArgs maintain.Args, provider iaas.Provider) (*concourse.Client, error) {
-	terraformClient, err := terraform.New(provider.IAAS(), terraform.DownloadTerraform())
+	versionFile, _ := provider.Choose(iaas.Choice{
+		AWS: resource.AWSVersionFile,
+		GCP: resource.GCPVersionFile,
+	}).([]byte)
+
+	terraformClient, err := terraform.New(provider.IAAS(), terraform.DownloadTerraform(versionFile))
 	if err != nil {
 		return nil, err
 	}
