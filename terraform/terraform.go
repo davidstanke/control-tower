@@ -84,8 +84,6 @@ func DownloadTerraform(versionFile []byte) Option {
 
 // New provides a new CLI
 func New(iaas iaas.Name, ops ...Option) (*CLI, error) {
-	// @Note: we will have to switch between IAASs at this point
-	// for the time being we are using directly AWS
 	cli := &CLI{
 		execCmd: exec.Command,
 		Path:    "terraform",
