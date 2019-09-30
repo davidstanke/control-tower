@@ -50,7 +50,7 @@ var (
 	// CleanupCerts moves renewed values of certs to old keys in director vars store
 	CleanupCerts = file.MustAssetString("assets/maintenance/cleanup-certs.yml")
 
-	AWSVersionFile = file.MustAssetString("../../control-tower-ops/createenv-dependencies-and-cli-versions-aws.json")
+	AWSVersionFile = file.MustAsset("../../control-tower-ops/createenv-dependencies-and-cli-versions-aws.json")
 
-	GCPVersionFile = file.MustAssetString("../../control-tower-ops/createenv-dependencies-and-cli-versions-gcp.json")
+	GCPVersionFile = file.MustAsset("../../control-tower-ops/createenv-dependencies-and-cli-versions-gcp.json")
 )

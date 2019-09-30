@@ -11,8 +11,8 @@ import (
 	"github.com/EngineerBetter/control-tower/config"
 	"github.com/EngineerBetter/control-tower/fly"
 	"github.com/EngineerBetter/control-tower/iaas"
-	"github.com/EngineerBetter/control-tower/terraform"
 	"github.com/EngineerBetter/control-tower/resource"
+	"github.com/EngineerBetter/control-tower/terraform"
 
 	"github.com/xenolf/lego/lego"
 )
