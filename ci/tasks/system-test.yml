@@ -13,8 +13,9 @@ run:
   path: control-tower/ci/tasks/system-test.sh
 
 params:
-  GOOGLE_APPLICATION_CREDENTIALS_CONTENTS: ((system_test_google_application_credentials))
-  IAAS: GCP
-  BINARY_PATH: binary-linux/control-tower-linux-amd64
-  VERBOSE: true
-  SKIP_TEARDOWN: true
+  AWS_ACCESS_KEY_ID:
+  AWS_SECRET_ACCESS_KEY:
+  BINARY_PATH:
+  GOOGLE_APPLICATION_CREDENTIALS_CONTENTS:
+  IAAS:
+  VERBOSE:
