@@ -116,6 +116,7 @@ func buildDestroyClient(name, version string, destroyArgs destroy.Args, provider
 		util.EightRandomLetters,
 		util.GenerateSSHKeyPair,
 		version,
+		versionFile,
 	)
 
 	return client, nil

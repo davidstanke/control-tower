@@ -11,7 +11,6 @@ import (
 	"github.com/EngineerBetter/control-tower/config"
 	"github.com/EngineerBetter/control-tower/fly"
 	"github.com/EngineerBetter/control-tower/iaas"
-	"github.com/EngineerBetter/control-tower/resource"
 	"github.com/EngineerBetter/control-tower/terraform"
 
 	"github.com/xenolf/lego/lego"
@@ -62,11 +61,8 @@ func NewClient(
 	passwordGenerator func(int) string,
 	eightRandomLetters func() string,
 	sshGenerator func() ([]byte, []byte, string, error),
-	version string) *Client {
-	v, _ := provider.Choose(iaas.Choice{
-		AWS: resource.AWSVersionFile,
-		GCP: resource.GCPVersionFile,
-	}).([]byte)
+	version string,
+	versionFile []byte) *Client {
 	return &Client{
 		acmeClientConstructor: acmeClientConstructor,
 		boshClientFactory:     boshClientFactory,
@@ -84,7 +80,7 @@ func NewClient(
 		tfCLI:                 tfCLI,
 		tfInputVarsFactory:    tfInputVarsFactory,
 		version:               version,
-		versionFile:           v,
+		versionFile:           versionFile,
 	}
 }
 

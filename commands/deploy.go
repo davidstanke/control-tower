@@ -409,6 +409,7 @@ func buildClient(name, version string, deployArgs deploy.Args, provider iaas.Pro
 		util.EightRandomLetters,
 		util.GenerateSSHKeyPair,
 		version,
+		versionFile,
 	)
 
 	return client, nil

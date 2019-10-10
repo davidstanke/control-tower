@@ -139,6 +139,7 @@ func buildInfoClient(name, version string, infoArgs info.Args, provider iaas.Pro
 		util.EightRandomLetters,
 		util.GenerateSSHKeyPair,
 		version,
+		versionFile,
 	)
 
 	return client, nil

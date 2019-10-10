@@ -120,6 +120,7 @@ func buildMaintainClient(name, version string, maintainArgs maintain.Args, provi
 		util.EightRandomLetters,
 		util.GenerateSSHKeyPair,
 		version,
+		versionFile,
 	)
 
 	return client, nil

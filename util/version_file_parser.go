@@ -21,7 +21,6 @@ type BinaryPaths struct {
 
 func ParseVersionResources(versionFile []byte) map[string]Resource {
 	var resources map[string]Resource
-	// var binaries map[string]BinaryPaths
 
 	err := json.Unmarshal(versionFile, &resources)
 	if err != nil {
